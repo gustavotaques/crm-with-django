@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import fields
 from .models import Lead
 
 class LeadModelForm(forms.ModelForm):
@@ -11,6 +10,12 @@ class LeadModelForm(forms.ModelForm):
             'age',
             'agent',
         )
+
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'text-right'}),
+            'last_name': forms.TextInput(attrs={'class': 'text-right'}),
+            'age': forms.NumberInput(attrs={'class': 'text-right'}),
+        }
 
 
 # class LeadForm(forms.Form):
